@@ -21,8 +21,8 @@ public class BookWarehouse {
     private Long id;
 
     @OneToMany
-    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
-    private List<Book> Book;
+    @JoinColumn(name = "bookid", referencedColumnName = "id")
+    private List<Book> bookid;
 
     @Column
     private int availableBooks;
@@ -32,7 +32,7 @@ public class BookWarehouse {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         BookWarehouse bookWarehouse = (BookWarehouse) o;
-        return id!= null && Objects.equals(id,bookWarehouse.id);
+        return id != null && Objects.equals(id, bookWarehouse.id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class BookWarehouse {
     public String toString() {
         return "BookWarehouse{" +
                 "id=" + id +
-                ", Book=" + Book +
+                ", bookid=" + bookid +
                 ", availableBooks=" + availableBooks +
                 '}';
     }

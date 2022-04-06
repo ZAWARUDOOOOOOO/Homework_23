@@ -23,8 +23,8 @@ public class Book {
     private String bookName;
 
     @ManyToOne
-    @JoinColumn(name = "id")
-    private Author author;
+    @JoinColumn(name = "authorid",referencedColumnName = "id")
+    private Author authorid;
 
     @Column
     private int releaseYear;
@@ -53,7 +53,7 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", bookName='" + bookName + '\'' +
-                ", author=" + author +
+                ", authorid=" + authorid +
                 ", releaseYear=" + releaseYear +
                 ", pagesNumber=" + pagesNumber +
                 ", cost=" + cost +

@@ -20,11 +20,11 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
-    private Client client;
+    @JoinColumn(name = "clientid", referencedColumnName = "id")
+    private Client clientid;
 
     @OneToOne
-    @JoinColumn(name = "cost")
+    @JoinColumn(name = "cost", referencedColumnName = "cost")
     private OrderDetails cost;
 
     @Override
@@ -32,7 +32,7 @@ public class Order {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Order order = (Order) o;
-        return id!= null && Objects.equals(id,order.id);
+        return id != null && Objects.equals(id, order.id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", client=" + client +
+                ", clientid=" + clientid +
                 ", cost=" + cost +
                 '}';
     }

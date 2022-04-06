@@ -31,7 +31,7 @@ public class Client {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Client client = (Client) o;
-        return id!= null && Objects.equals(id,client.id);
+        return id != null && Objects.equals(id, client.id);
     }
 
     @Override

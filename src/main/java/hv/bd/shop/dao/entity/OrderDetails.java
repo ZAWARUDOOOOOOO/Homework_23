@@ -21,25 +21,25 @@ public class OrderDetails {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "orderid", referencedColumnName = "id")
     private Order orderId;
 
     @OneToMany
-    @JoinColumn(name = "id")
-    private List<Book> book;
+    @JoinColumn(name = "bookid", referencedColumnName = "id")
+    private List<Book> bookid;
 
     @Column
     private int booksCount;
 
     @Column
-    private Order orderCost;
+    private int cost;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         OrderDetails orderDetails = (OrderDetails) o;
-        return id!= null && Objects.equals(id,orderDetails.id);
+        return id != null && Objects.equals(id, orderDetails.id);
     }
 
     @Override
@@ -52,9 +52,9 @@ public class OrderDetails {
         return "OrderDetails{" +
                 "id=" + id +
                 ", orderId=" + orderId +
-                ", book=" + book +
+                ", bookid=" + bookid +
                 ", booksCount=" + booksCount +
-                ", orderCost=" + orderCost +
+                ", cost=" + cost +
                 '}';
     }
 }
